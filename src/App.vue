@@ -1,85 +1,77 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div>
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to="/Projects">Projects</router-link>
+      <router-link to="/About">About</router-link>
+    </nav>
+    <router-view />
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
 
 nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+  font-family: 'San Francisco Bold';
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.nav-links {
+  list-style: none;
+  margin: 10;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.nav-links li {
+  margin: 0 10px;
+  text-decoration: none;
+  color: rgb(82, 81, 81);
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.nav-links li a {
+  text-decoration: none;
+  color: #090909;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  transition: all .3s;
+  box-shadow: 6px 6px 12px #c5c5c5,
+              -6px -6px 12px #ffffff;
 }
 
-nav a:first-of-type {
-  border: 0;
+.nav-links li a:hover {
+  border: 1px solid white;
+  color: #aaaaaa;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.nav-links li a:active {
+  color: #4f4f4f;
+  box-shadow: 4px 4px 12px #c5c5c5,
+              -4px -4px 12px #ffffff;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.nav-links li a img{
+  transition: all .3s;
+  position: relative;
+  top: 8px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.nav-links li a:hover img{
+  filter: invert(71%) sepia(15%) saturate(11%) hue-rotate(315deg) brightness(94%) contrast(85%);
+}
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.nav-links li a:active img {
+  filter: invert(27%) sepia(0%) saturate(2161%) hue-rotate(201deg) brightness(98%) contrast(82%);
 }
 </style>
